@@ -1,0 +1,51 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090b12">
+  <title>Kynox AI | Atendimento</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">K</div>
+    <div><strong>Kynox AI</strong><small>Central de atendimento</small></div>
+    <span class="live"><i></i> Painel</span>
+  </header>
+  <main class="layout">
+    <section class="login card" id="login">
+      <h1>Acessar painel</h1>
+      <p>Digite o token administrativo configurado nas variáveis privadas do Netlify.</p>
+      <label for="token">Token de acesso</label>
+      <input id="token" type="password" autocomplete="current-password" placeholder="Seu token administrativo">
+      <button id="loginBtn">Entrar</button>
+      <p class="muted" id="loginError"></p>
+    </section>
+    <section id="app" class="app hidden">
+      <aside class="sidebar card">
+        <div class="side-title"><h2>Conversas</h2><button class="secondary" id="refresh">Atualizar</button></div>
+        <div id="contacts" class="contacts"><p class="muted">Carregando...</p></div>
+      </aside>
+      <section class="chat card">
+        <div class="chat-head">
+          <div><h2 id="chatName">Selecione uma conversa</h2><p id="chatMeta" class="muted">As conversas aparecerão aqui.</p></div>
+          <select id="status" disabled>
+            <option value="bot">IA automática</option>
+            <option value="human">Atendimento humano</option>
+            <option value="closed">Encerrado</option>
+          </select>
+        </div>
+        <div id="messages" class="messages"><div class="empty">Escolha um cliente para visualizar as mensagens.</div></div>
+        <form id="sendForm" class="composer">
+          <input id="message" placeholder="Escreva uma mensagem..." disabled>
+          <button id="sendBtn" disabled>Enviar</button>
+        </form>
+        <p class="hint">Ao enviar manualmente, o atendimento passa para modo humano e a IA para de responder esse contato.</p>
+      </section>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
